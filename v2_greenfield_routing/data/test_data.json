@@ -1,0 +1,71 @@
+{
+  "test_cases": [
+    {
+      "id": "neg_weight_optimal_path",
+      "description": "Negative-weight edge optimization (core bug fix)",
+      "graph_file": "graph_negative_weight.json",
+      "start": "A",
+      "goal": "B",
+      "expected_path": ["A", "C", "D", "F", "B"],
+      "expected_cost": 1.0,
+      "algorithm": "Bellman-Ford"
+    },
+    {
+      "id": "normal_graph_optimal",
+      "description": "Normal DAG shortest path",
+      "graph": {
+        "edges": [
+          {"source": "A", "target": "B", "weight": 10},
+          {"source": "A", "target": "C", "weight": 5},
+          {"source": "C", "target": "B", "weight": 3}
+        ]
+      },
+      "start": "A",
+      "goal": "B",
+      "expected_path": ["A", "C", "B"],
+      "expected_cost": 8.0,
+      "algorithm": "Dijkstra"
+    },
+    {
+      "id": "disconnected_graph_no_path",
+      "description": "Disconnected components (no path exists)",
+      "graph": {
+        "edges": [
+          {"source": "A", "target": "B", "weight": 1},
+          {"source": "C", "target": "D", "weight": 1}
+        ]
+      },
+      "start": "A",
+      "goal": "D",
+      "expected_error": "not_found",
+      "expected_path": null
+    },
+    {
+      "id": "single_edge_graph",
+      "description": "Minimal graph with one edge",
+      "graph": {
+        "edges": [
+          {"source": "X", "target": "Y", "weight": 42}
+        ]
+      },
+      "start": "X",
+      "goal": "Y",
+      "expected_path": ["X", "Y"],
+      "expected_cost": 42.0
+    },
+    {
+      "id": "large_chain",
+      "description": "Linear chain of 20 nodes",
+      "graph": {
+        "edges": [
+          {"source": str(i), "target": str(i+1), "weight": 1}
+          for i in range(19)
+        ]
+      },
+      "start": "0",
+      "goal": "19",
+      "expected_path": [str(i) for i in range(20)],
+      "expected_cost": 19.0
+    }
+  ]
+}

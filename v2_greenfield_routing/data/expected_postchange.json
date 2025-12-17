@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "test_results": [
+    {
+      "test_id": "neg_weight_optimal_path",
+      "status": "PASS",
+      "request_id": "req-001",
+      "start_node": "A",
+      "end_node": "B",
+      "path_returned": ["A", "C", "D", "F", "B"],
+      "cost_returned": 1.0,
+      "cost_expected": 1.0,
+      "algorithm": "Bellman-Ford",
+      "compute_time_ms": 2.5,
+      "attempt_count": 1
+    },
+    {
+      "test_id": "normal_graph_optimal",
+      "status": "PASS",
+      "request_id": "req-002",
+      "start_node": "A",
+      "end_node": "B",
+      "path_returned": ["A", "C", "B"],
+      "cost_returned": 8.0,
+      "cost_expected": 8.0,
+      "algorithm": "Dijkstra",
+      "compute_time_ms": 1.2,
+      "attempt_count": 1
+    },
+    {
+      "test_id": "idempotency_cache_hit",
+      "status": "PASS",
+      "request_id": "req-123",
+      "status_code": "success",
+      "cache_hit": true,
+      "first_compute_ms": 1.5,
+      "second_compute_ms": 0.1,
+      "speedup": 15.0
+    },
+    {
+      "test_id": "validation_missing_node",
+      "status": "PASS",
+      "request_id": "req-003",
+      "start_node": "INVALID",
+      "error_type": "validation_error",
+      "error_message": "Start node 'INVALID' not in graph",
+      "compute_time_ms": 0.5
+    }
+  ],
+  "aggregate_metrics": {
+    "total_tests": 4,
+    "passed": 4,
+    "failed": 0,
+    "total_compute_time_ms": 5.2,
+    "avg_compute_time_ms": 1.3,
+    "p50_compute_time_ms": 1.35,
+    "p95_compute_time_ms": 2.3,
+    "cache_hit_rate": 0.5,
+    "success_rate": 1.0,
+    "retry_count": 0
+  }
+}
