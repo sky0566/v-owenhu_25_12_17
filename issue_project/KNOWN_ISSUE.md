@@ -13,7 +13,9 @@
 **Expected Behavior:**
 - Either raise an error when negative weights are present, **or** use Bellman-Ford (or another algorithm supporting negative edges) to compute the correct shortest path (total cost 1).
 
-**Fix Ideas (not implemented):**
-- Scan edges for `weight < 0` before running Dijkstra; raise `ValueError` or switch algorithms.
-- Correct the Dijkstra implementation to mark nodes visited when popped (finalized), not when first discovered.
-- Provide a Bellman-Ford implementation for graphs with negative weights.
+**Fix implemented:**
+- Scan edges for `weight < 0` before running Dijkstra; `dijkstra_shortest_path` now raises `ValueError` with a message containing "negative" if any negative-weight edges are found.
+- Corrected Dijkstra implementation to mark nodes as finalized when popped from the heap (no premature finalization).
+- Added `bellman_ford_shortest_path` to compute shortest paths on graphs with negative weights and detect negative-weight cycles.
+
+Unit tests were updated to assert the new behavior: Dijkstra rejects negative-weight graphs while Bellman-Ford returns the optimal path for the provided fixture.

@@ -2,7 +2,7 @@ import pytest
 from pathlib import Path
 
 from logistics.graph import Graph
-from logistics.routing import dijkstra_shortest_path
+from logistics.routing import dijkstra_shortest_path, bellman_ford_shortest_path
 
 FIXTURE_PATH = Path(__file__).resolve().parents[1] / "data" / "graph_negative_weight.json"
 
@@ -19,7 +19,7 @@ def test_dijkstra_rejects_negative_weights(graph):
 
 
 def test_dijkstra_finds_optimal_path_despite_negative_edge(graph):
-    """Even if allowed, the algorithm should find the optimal path (cost=1)."""
-    path, cost = dijkstra_shortest_path(graph, "A", "B")
+    """Bellman-Ford should find the optimal path when negative edges are present."""
+    path, cost = bellman_ford_shortest_path(graph, "A", "B")
     assert path == ["A", "C", "D", "F", "B"]
     assert cost == pytest.approx(1.0)
