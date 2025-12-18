@@ -1,0 +1,7 @@
+[
+  {"id":"a-1","patient_name":"Alice Example","time":"2026-01-10T09:00:00Z","provider":"immediate","payload":{"notes":"healthy"}},
+  {"id":"a-2","patient_name":"Bob Test","time":"2026-01-10T10:00:00Z","provider":"delayed","payload":{"notes":"slow backend"}},
+  {"id":"a-3","patient_name":"Carol Retry","time":"2026-01-10T11:00:00Z","provider":"flaky","payload":{"notes":"sometimes 5xx"}},
+  {"id":"a-4","patient_name":"Dan Compensate","time":"2026-01-10T12:00:00Z","provider":"always_fail","payload":{"notes":"force compensation"}},
+  {"id":"a-5","patient_name":"Eve Idempotent","time":"2026-01-10T13:00:00Z","provider":"immediate","payload":{"notes":"duplicate submit"}}
+]

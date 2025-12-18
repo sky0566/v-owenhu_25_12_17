@@ -1,0 +1,45 @@
+{"time": 1766040133.0120912, "evt": "create_request", "request_id": "a-1", "appointment_id": null, "extra": {"id": "a-1", "patient_name": "A***", "time": "2026-01-10T09:00:00Z", "provider": "immediate", "payload": {"notes": "healthy"}}}
+{"time": 1766040133.0142667, "evt": "provider_call", "request_id": "a-1", "appointment_id": "a-1", "extra": {"attempt": 1}}
+{"time": 1766040133.01576, "evt": "confirmed", "request_id": "a-1", "appointment_id": "a-1", "extra": null}
+{"time": 1766040133.0175185, "evt": "create_request", "request_id": "a-2", "appointment_id": null, "extra": {"id": "a-2", "patient_name": "B***", "time": "2026-01-10T10:00:00Z", "provider": "delayed", "payload": {"notes": "slow backend"}}}
+{"time": 1766040133.0185301, "evt": "provider_call", "request_id": "a-2", "appointment_id": "a-2", "extra": {"attempt": 1}}
+{"time": 1766040133.6214073, "evt": "confirmed", "request_id": "a-2", "appointment_id": "a-2", "extra": null}
+{"time": 1766040133.6283784, "evt": "create_request", "request_id": "a-3", "appointment_id": null, "extra": {"id": "a-3", "patient_name": "C***", "time": "2026-01-10T11:00:00Z", "provider": "flaky", "payload": {"notes": "sometimes 5xx"}}}
+{"time": 1766040133.630399, "evt": "provider_call", "request_id": "a-3", "appointment_id": "a-3", "extra": {"attempt": 1}}
+{"time": 1766040133.632649, "evt": "confirmed", "request_id": "a-3", "appointment_id": "a-3", "extra": null}
+{"time": 1766040133.6357775, "evt": "create_request", "request_id": "a-4", "appointment_id": null, "extra": {"id": "a-4", "patient_name": "D***", "time": "2026-01-10T12:00:00Z", "provider": "always_fail", "payload": {"notes": "force compensation"}}}
+{"time": 1766040133.637717, "evt": "provider_call", "request_id": "a-4", "appointment_id": "a-4", "extra": {"attempt": 1}}
+{"time": 1766040133.637717, "evt": "provider_error", "request_id": "a-4", "appointment_id": "a-4", "extra": {"err": "permanent-5xx", "attempt": 1}}
+{"time": 1766040133.689881, "evt": "provider_call", "request_id": "a-4", "appointment_id": "a-4", "extra": {"attempt": 2}}
+{"time": 1766040133.690925, "evt": "provider_error", "request_id": "a-4", "appointment_id": "a-4", "extra": {"err": "permanent-5xx", "attempt": 2}}
+{"time": 1766040133.7932153, "evt": "provider_call", "request_id": "a-4", "appointment_id": "a-4", "extra": {"attempt": 3}}
+{"time": 1766040133.7952864, "evt": "provider_error", "request_id": "a-4", "appointment_id": "a-4", "extra": {"err": "permanent-5xx", "attempt": 3}}
+{"time": 1766040134.0012531, "evt": "compensate_cancel", "request_id": "a-4", "appointment_id": "a-4", "extra": null}
+{"time": 1766040134.0298107, "evt": "create_request", "request_id": "a-5", "appointment_id": null, "extra": {"id": "a-5", "patient_name": "E***", "time": "2026-01-10T13:00:00Z", "provider": "immediate", "payload": {"notes": "duplicate submit"}}}
+{"time": 1766040134.0336237, "evt": "provider_call", "request_id": "a-5", "appointment_id": "a-5", "extra": {"attempt": 1}}
+{"time": 1766040134.0336237, "evt": "provider_error", "request_id": "a-5", "appointment_id": "a-5", "extra": {"err": "circuit-open", "attempt": 1}}
+{"time": 1766040134.0866673, "evt": "provider_call", "request_id": "a-5", "appointment_id": "a-5", "extra": {"attempt": 2}}
+{"time": 1766040134.0876858, "evt": "provider_error", "request_id": "a-5", "appointment_id": "a-5", "extra": {"err": "circuit-open", "attempt": 2}}
+{"time": 1766040134.1929972, "evt": "compensate_cancel", "request_id": "a-5", "appointment_id": "a-5", "extra": null}
+{"time": 1766040134.1960025, "evt": "create_request", "request_id": "a-5", "appointment_id": null, "extra": {"id": "a-5", "patient_name": "E***", "time": "2026-01-10T13:00:00Z", "provider": "immediate", "payload": {"notes": "duplicate submit"}}}
+{"time": 1766040134.1991315, "evt": "idempotent_hit", "request_id": "a-5", "appointment_id": "a-5", "extra": null}
+{"time": 1766040134.2273462, "evt": "create_request", "request_id": "cb-1-0", "appointment_id": null, "extra": {"id": "cb-1", "patient_name": "X***", "time": "2026", "provider": "always_fail", "payload": {}}}
+{"time": 1766040134.2303813, "evt": "provider_call", "request_id": "cb-1-0", "appointment_id": "cb-1", "extra": {"attempt": 1}}
+{"time": 1766040134.2314699, "evt": "provider_error", "request_id": "cb-1-0", "appointment_id": "cb-1", "extra": {"err": "permanent-5xx", "attempt": 1}}
+{"time": 1766040134.2845411, "evt": "compensate_cancel", "request_id": "cb-1-0", "appointment_id": "cb-1", "extra": null}
+{"time": 1766040134.2865603, "evt": "create_request", "request_id": "cb-1-1", "appointment_id": null, "extra": {"id": "cb-1", "patient_name": "X***", "time": "2026", "provider": "always_fail", "payload": {}}}
+{"time": 1766040134.288566, "evt": "provider_call", "request_id": "cb-1-1", "appointment_id": "cb-1", "extra": {"attempt": 1}}
+{"time": 1766040134.288566, "evt": "provider_error", "request_id": "cb-1-1", "appointment_id": "cb-1", "extra": {"err": "permanent-5xx", "attempt": 1}}
+{"time": 1766040134.3427138, "evt": "compensate_cancel", "request_id": "cb-1-1", "appointment_id": "cb-1", "extra": null}
+{"time": 1766040134.3437002, "evt": "create_request", "request_id": "cb-1-2", "appointment_id": null, "extra": {"id": "cb-1", "patient_name": "X***", "time": "2026", "provider": "always_fail", "payload": {}}}
+{"time": 1766040134.3450196, "evt": "provider_call", "request_id": "cb-1-2", "appointment_id": "cb-1", "extra": {"attempt": 1}}
+{"time": 1766040134.3450196, "evt": "provider_error", "request_id": "cb-1-2", "appointment_id": "cb-1", "extra": {"err": "permanent-5xx", "attempt": 1}}
+{"time": 1766040134.399925, "evt": "compensate_cancel", "request_id": "cb-1-2", "appointment_id": "cb-1", "extra": null}
+{"time": 1766040134.4024112, "evt": "create_request", "request_id": "cb-1-3", "appointment_id": null, "extra": {"id": "cb-1", "patient_name": "X***", "time": "2026", "provider": "always_fail", "payload": {}}}
+{"time": 1766040134.406268, "evt": "provider_call", "request_id": "cb-1-3", "appointment_id": "cb-1", "extra": {"attempt": 1}}
+{"time": 1766040134.4082682, "evt": "provider_error", "request_id": "cb-1-3", "appointment_id": "cb-1", "extra": {"err": "circuit-open", "attempt": 1}}
+{"time": 1766040134.4625099, "evt": "compensate_cancel", "request_id": "cb-1-3", "appointment_id": "cb-1", "extra": null}
+{"time": 1766040134.464413, "evt": "create_request", "request_id": "cb-1-4", "appointment_id": null, "extra": {"id": "cb-1", "patient_name": "X***", "time": "2026", "provider": "always_fail", "payload": {}}}
+{"time": 1766040134.4663131, "evt": "provider_call", "request_id": "cb-1-4", "appointment_id": "cb-1", "extra": {"attempt": 1}}
+{"time": 1766040134.4663131, "evt": "provider_error", "request_id": "cb-1-4", "appointment_id": "cb-1", "extra": {"err": "circuit-open", "attempt": 1}}
+{"time": 1766040134.5202668, "evt": "compensate_cancel", "request_id": "cb-1-4", "appointment_id": "cb-1", "extra": null}
