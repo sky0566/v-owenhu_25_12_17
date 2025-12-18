@@ -1,0 +1,164 @@
+{
+  "test_cases": [
+    {
+      "id": "negative_weight_optimal",
+      "description": "Graph with negative weight - should find optimal path using Bellman-Ford",
+      "graph": {
+        "edges": [
+          {"source": "A", "target": "B", "weight": 5},
+          {"source": "A", "target": "C", "weight": 2},
+          {"source": "C", "target": "D", "weight": 1},
+          {"source": "D", "target": "F", "weight": -3},
+          {"source": "F", "target": "B", "weight": 1},
+          {"source": "A", "target": "E", "weight": 1},
+          {"source": "E", "target": "B", "weight": 6}
+        ]
+      },
+      "start": "A",
+      "goal": "B",
+      "expected": {
+        "status": "success",
+        "path": ["A", "C", "D", "F", "B"],
+        "cost": 1.0,
+        "algorithm": "bellman_ford"
+      }
+    },
+    {
+      "id": "negative_cycle",
+      "description": "Graph with negative cycle - should be rejected",
+      "graph": {
+        "edges": [
+          {"source": "A", "target": "B", "weight": 1},
+          {"source": "B", "target": "C", "weight": 1},
+          {"source": "C", "target": "A", "weight": -3}
+        ]
+      },
+      "start": "A",
+      "goal": "B",
+      "expected": {
+        "status": "negative_cycle",
+        "error_contains": "negative"
+      }
+    },
+    {
+      "id": "positive_weights_dijkstra",
+      "description": "Standard graph with all positive weights - should use Dijkstra",
+      "graph": {
+        "edges": [
+          {"source": "A", "target": "B", "weight": 4},
+          {"source": "A", "target": "C", "weight": 2},
+          {"source": "C", "target": "B", "weight": 1},
+          {"source": "B", "target": "D", "weight": 5},
+          {"source": "C", "target": "D", "weight": 8},
+          {"source": "C", "target": "E", "weight": 10},
+          {"source": "D", "target": "E", "weight": 2}
+        ]
+      },
+      "start": "A",
+      "goal": "E",
+      "expected": {
+        "status": "success",
+        "path": ["A", "C", "B", "D", "E"],
+        "cost": 10.0,
+        "algorithm": "dijkstra"
+      }
+    },
+    {
+      "id": "node_not_found",
+      "description": "Start node doesn't exist - should return validation error",
+      "graph": {
+        "edges": [
+          {"source": "A", "target": "B", "weight": 1}
+        ]
+      },
+      "start": "X",
+      "goal": "B",
+      "expected": {
+        "status": "validation_error",
+        "error_contains": "not found"
+      }
+    },
+    {
+      "id": "no_path_exists",
+      "description": "Disconnected graph - no path exists",
+      "graph": {
+        "edges": [
+          {"source": "A", "target": "B", "weight": 1},
+          {"source": "C", "target": "D", "weight": 1}
+        ]
+      },
+      "start": "A",
+      "goal": "D",
+      "expected": {
+        "status": "no_path",
+        "error_contains": "No path"
+      }
+    },
+    {
+      "id": "self_loop",
+      "description": "Start equals goal - trivial case",
+      "graph": {
+        "edges": [
+          {"source": "A", "target": "B", "weight": 1}
+        ]
+      },
+      "start": "A",
+      "goal": "A",
+      "expected": {
+        "status": "success",
+        "path": ["A"],
+        "cost": 0.0
+      }
+    },
+    {
+      "id": "complex_graph",
+      "description": "Larger graph with multiple paths",
+      "graph": {
+        "edges": [
+          {"source": "S", "target": "A", "weight": 7},
+          {"source": "S", "target": "B", "weight": 2},
+          {"source": "S", "target": "C", "weight": 3},
+          {"source": "A", "target": "D", "weight": 4},
+          {"source": "B", "target": "D", "weight": 4},
+          {"source": "B", "target": "H", "weight": 1},
+          {"source": "C", "target": "L", "weight": 2},
+          {"source": "D", "target": "F", "weight": 5},
+          {"source": "F", "target": "H", "weight": 3},
+          {"source": "H", "target": "G", "weight": 2},
+          {"source": "L", "target": "I", "weight": 4},
+          {"source": "I", "target": "J", "weight": 6},
+          {"source": "J", "target": "K", "weight": 4},
+          {"source": "K", "target": "G", "weight": 4}
+        ]
+      },
+      "start": "S",
+      "goal": "G",
+      "expected": {
+        "status": "success",
+        "path": ["S", "B", "H", "G"],
+        "cost": 5.0,
+        "algorithm": "dijkstra"
+      }
+    },
+    {
+      "id": "negative_weight_multiple_paths",
+      "description": "Multiple paths with negative weights",
+      "graph": {
+        "edges": [
+          {"source": "X", "target": "Y", "weight": 10},
+          {"source": "X", "target": "Z", "weight": 5},
+          {"source": "Z", "target": "W", "weight": 3},
+          {"source": "W", "target": "Y", "weight": -2}
+        ]
+      },
+      "start": "X",
+      "goal": "Y",
+      "expected": {
+        "status": "success",
+        "path": ["X", "Z", "W", "Y"],
+        "cost": 6.0,
+        "algorithm": "bellman_ford"
+      }
+    }
+  ]
+}
