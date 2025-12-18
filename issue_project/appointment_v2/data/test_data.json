@@ -1,0 +1,7 @@
+[
+  {"id": "case-healthy", "payload": {"title": "healthy", "owner": {"name": "Alice", "email": "a@ex.com"}}, "mode": "success", "idempotency": "id-1"},
+  {"id": "case-idempotent", "payload": {"title": "idem", "owner": {"name": "Bob", "email": "b@ex.com"}}, "mode": "success", "idempotency": "id-2"},
+  {"id": "case-retry", "payload": {"title": "retry", "owner": {"name": "C", "email": "c@ex.com"}}, "mode": "transient", "fail_times": 1, "idempotency": "id-3"},
+  {"id": "case-permanent", "payload": {"title": "perm", "owner": {"name": "D", "email": "d@ex.com"}}, "mode": "permanent", "idempotency": "id-4"},
+  {"id": "case-circuit", "payload": {"title": "circuit", "owner": {"name": "E", "email": "e@ex.com"}}, "mode": "transient", "fail_times": 10, "idempotency": "id-5"}
+]

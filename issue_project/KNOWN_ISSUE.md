@@ -17,3 +17,7 @@
 - Scan edges for `weight < 0` before running Dijkstra; raise `ValueError` or switch algorithms.
 - Correct the Dijkstra implementation to mark nodes visited when popped (finalized), not when first discovered.
 - Provide a Bellman-Ford implementation for graphs with negative weights.
+
+---
+
+Note: This repository also contains a greenfield prototype for an appointment scheduling service (appointment_v2/) demonstrating idempotency, retry/backoff, circuit-breaker, outbox and reconciliation patterns. Run `./run_all.sh` to execute both legacy and new scenario tests and collect artifacts in results/.

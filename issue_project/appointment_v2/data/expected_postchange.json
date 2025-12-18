@@ -1,0 +1,7 @@
+{
+  "case-healthy": {"status": "confirmed"},
+  "case-idempotent": {"status": "confirmed"},
+  "case-retry": {"status": "confirmed"},
+  "case-permanent": {"status": "failed"},
+  "case-circuit": {"status": "pending"}
+}

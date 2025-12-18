@@ -1,0 +1,32 @@
+{
+  "case-healthy": {
+    "status": "confirmed",
+    "duration_ms": 1.52,
+    "cal_calls": 1,
+    "outbox_len": 0
+  },
+  "case-idempotent": {
+    "status": "confirmed",
+    "duration_ms": 0.81,
+    "cal_calls": 1,
+    "outbox_len": 0
+  },
+  "case-retry": {
+    "status": "confirmed",
+    "duration_ms": 0.0,
+    "cal_calls": 2,
+    "outbox_len": 0
+  },
+  "case-permanent": {
+    "status": "failed",
+    "duration_ms": 1.31,
+    "cal_calls": 1,
+    "outbox_len": 1
+  },
+  "case-circuit": {
+    "status": "pending",
+    "duration_ms": 1.11,
+    "cal_calls": 3,
+    "outbox_len": 1
+  }
+}
