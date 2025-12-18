@@ -1,0 +1,121 @@
+{
+  "appointments": {
+    "cb-1-0": {
+      "id": "cb-1",
+      "state": "failed",
+      "payload": {
+        "id": "cb-1",
+        "patient_name": "X",
+        "time": "2026",
+        "provider": "always_fail",
+        "payload": {}
+      },
+      "attempts": 1
+    },
+    "cb-1-1": {
+      "id": "cb-1",
+      "state": "failed",
+      "payload": {
+        "id": "cb-1",
+        "patient_name": "X",
+        "time": "2026",
+        "provider": "always_fail",
+        "payload": {}
+      },
+      "attempts": 1
+    },
+    "cb-1-2": {
+      "id": "cb-1",
+      "state": "failed",
+      "payload": {
+        "id": "cb-1",
+        "patient_name": "X",
+        "time": "2026",
+        "provider": "always_fail",
+        "payload": {}
+      },
+      "attempts": 1
+    },
+    "cb-1-3": {
+      "id": "cb-1",
+      "state": "failed",
+      "payload": {
+        "id": "cb-1",
+        "patient_name": "X",
+        "time": "2026",
+        "provider": "always_fail",
+        "payload": {}
+      },
+      "attempts": 1
+    },
+    "cb-1-4": {
+      "id": "cb-1",
+      "state": "failed",
+      "payload": {
+        "id": "cb-1",
+        "patient_name": "X",
+        "time": "2026",
+        "provider": "always_fail",
+        "payload": {}
+      },
+      "attempts": 1
+    }
+  },
+  "outbox": [
+    {
+      "type": "create",
+      "request_id": "cb-1-0",
+      "payload": {
+        "id": "cb-1",
+        "patient_name": "X",
+        "time": "2026",
+        "provider": "always_fail",
+        "payload": {}
+      }
+    },
+    {
+      "type": "create",
+      "request_id": "cb-1-1",
+      "payload": {
+        "id": "cb-1",
+        "patient_name": "X",
+        "time": "2026",
+        "provider": "always_fail",
+        "payload": {}
+      }
+    },
+    {
+      "type": "create",
+      "request_id": "cb-1-2",
+      "payload": {
+        "id": "cb-1",
+        "patient_name": "X",
+        "time": "2026",
+        "provider": "always_fail",
+        "payload": {}
+      }
+    },
+    {
+      "type": "create",
+      "request_id": "cb-1-3",
+      "payload": {
+        "id": "cb-1",
+        "patient_name": "X",
+        "time": "2026",
+        "provider": "always_fail",
+        "payload": {}
+      }
+    },
+    {
+      "type": "create",
+      "request_id": "cb-1-4",
+      "payload": {
+        "id": "cb-1",
+        "patient_name": "X",
+        "time": "2026",
+        "provider": "always_fail",
+        "payload": {}
+      }
+    }
+  ]
+}
