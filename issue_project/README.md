@@ -26,7 +26,19 @@ tests/                  # Automated tests (currently failing on purpose)
   test_routing_negative_weight.py
  data/                  # Sample graph data
   graph_negative_weight.json
-README.md               # This file
+README.md
+
+This repo contains the legacy issue_project and an appointment_v2 greenfield replacement prototype.
+
+To run the new scenario tests:
+
+- From the repository root: ./run_all.sh
+- Or run appointment_v2 directly: ./appointment_v2/run_tests.sh
+
+Artifacts:
+- appointment_v2/results/results_post.json: test metrics and outcomes
+- appointment_v2/logs/log_schema.md: structured logging guidance
+               # This file
 requirements.txt        # Dependencies (pytest)
 pytest.ini              # Pytest config (pythonpath=src)
 KNOWN_ISSUE.md          # Root-cause summary and fix hints
@@ -34,7 +46,14 @@ KNOWN_ISSUE.md          # Root-cause summary and fix hints
 
 ## Quickstart (Windows PowerShell)
 ```powershell
-python -m venv .venv; .\.venv\Scripts\activate; pip install -r requirements.txt; pytest
+# create and activate virtualenv, then install legacy and prototype deps
+python -m venv .venv; .\.venv\Scripts\activate
+# from the repo root, change into the project folder and install required deps
+cd v-owenhu_25_12_17/issue_project
+pip install -r requirements.txt
+# optionally install appointment_v2 test deps
+pip install -r appointment_v2/requirements.txt
+pytest
 ```
 
 ## Sample Usage
